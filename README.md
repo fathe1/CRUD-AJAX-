@@ -1,39 +1,27 @@
 # CRUD-AJAX-
 
 
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jul 28, 2024 at 10:14 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- إنشاء قاعدة البيانات
+CREATE DATABASE IF NOT EXISTS crud_db;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+-- استخدام قاعدة البيانات
+USE crud_db;
 
+-- إنشاء جدول السجلات
+CREATE TABLE IF NOT EXISTS records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    address VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `tutorial`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `crud`
---
-
-CREATE TABLE `crud` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- إضافة بيانات تجريبية
+INSERT INTO records (name, email, phone, address) VALUES 
+('John Doe', 'john.doe@example.com', '+1234567890', '123 Elm Street, Springfield'),
+('Jane Smith', 'jane.smith@example.com', '+0987654321', '456 Oak Avenue, Metropolis'),
+('Alice Johnson', 'alice.johnson@example.com', '+1122334455', '789 Pine Road, Gotham'),
+('Bob Brown', 'bob.brown@example.com', '+5566778899', '101 Maple Lane, Star City'),
+('Charlie Davis', 'charlie.davis@example.com', '+6677889900', '202 Birch Blvd, Central City'),
+('Diana Evans', 'diana.evans@example.com', '+7788990011', '303 Cedar Drive, Coast City');
